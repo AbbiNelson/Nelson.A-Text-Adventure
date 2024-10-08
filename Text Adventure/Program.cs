@@ -10,8 +10,11 @@ namespace Text_Adventure
         {
             RustedArmor, RustedSword
         }
-
         static equipmenttype playerequip;
+        public enum monsters
+        {
+            Hessian
+        }
         // Below this is the Break Foot path, this is not meant to be survivable. And main reason why is that I didn't want to write a storyline based on the broken foot
         static void BreakFoot()
         {
@@ -49,7 +52,7 @@ namespace Text_Adventure
         // Planning to make this pathway to the stop around when you get to the floor above yours.
         static void CallOut()
         {
-            string name = "power";           
+            string name = "power";
             int[] power = [5, 10, 15];
 
             Console.WriteLine("You yell out for help, and there is no response at first. But a key is thrown to you from the dark hallway outside of the cell." +
@@ -85,6 +88,15 @@ namespace Text_Adventure
                         Console.WriteLine("You begin to undo the armor straps and after struggling for a bit you are able to take the armor off." +
                             "After putting it on your body feels much heavier than before.");
                         playerequip = equipmenttype.RustedArmor;
+                        Console.WriteLine("Afterwards you begin to make your way to the cell door." +
+                            "And after stepping out of the cell you look around there are a path leading right and one leading left.");
+                        Console.WriteLine("You look to your left and see a dog-like creature rushing towards you.");
+                        if (playerequip == equipmenttype.RustedArmor)
+                        {
+                            Console.WriteLine("You raise your arm up to protect your neck from the creature. " +
+                                "The creature plunges its teeth into the rusted armor." +
+                                "Even though the armor is rusted it protects you a bit from the teeth.");
+                        }
                     }
                     else if (input == "Rusted Sword")
                     {
@@ -92,19 +104,26 @@ namespace Text_Adventure
                             "You begin to tug at the sword, after a while you fall backwards. " +
                             "But you were able to get the sword at of the skeleton's hand");
                         playerequip = equipmenttype.RustedSword;
+                        Console.WriteLine("Afterwards you begin to make your way to the cell door." +
+                            "And after stepping out of the cell you look around there are a path leading right and one leading left.");
+                        Console.WriteLine("You look to your left and see a dog-like creature rushing towards you.");
+                        if (playerequip == equipmenttype.RustedSword) {
+                            Console.WriteLine("You take the rusted sword and you raise it above your head. " +
+                                "And as the creature leaps to you, you bring down the sword on it.");
+                        }
                     }
-                }   
+                }
                 else if (input == "Leave Cell")
                 {
                     Console.WriteLine("You determine that the gear of the skeleton is far too rusted to be of use." +
                         "So you turn around to the cell door and walk through it." +
                         "Once you are out of the cell you look around there are a path leading right and one leading left.");
                 }
-                else if (input == "Walk Out")
-                {
-                    Console.WriteLine("You turn to the door and begin walking to the cell door." +
-                        "Once you are out of the cell you look around there are a path leading right and one leading left.");
-                }
+            }
+            else if (input == "Walk Out")
+            {
+                Console.WriteLine("You turn to the door and begin walking to the cell door." +
+                    "Once you are out of the cell you look around there are a path leading right and one leading left.");
             }
 
         }
