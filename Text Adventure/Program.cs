@@ -3,7 +3,13 @@ using System.Runtime.Intrinsics.X86;
 
 namespace Text_Adventure
 {
-    
+    struct PlayerData
+    {
+        public int health;
+        public int fistDamage;
+        public bool isAlive;
+        public string name;
+    }
     internal class Program
     {  
         public enum equipmenttype
@@ -15,6 +21,7 @@ namespace Text_Adventure
         {
             Hessian
         }
+
         // Below this is the Break Foot path, this is not meant to be survivable. And main reason why is that I didn't want to write a storyline based on the broken foot
         static void BreakFoot()
         {
@@ -118,12 +125,24 @@ namespace Text_Adventure
                     Console.WriteLine("You determine that the gear of the skeleton is far too rusted to be of use." +
                         "So you turn around to the cell door and walk through it." +
                         "Once you are out of the cell you look around there are a path leading right and one leading left.");
+                    Console.WriteLine("As you step out into the hall way, you begin to hear rapidly approaching foot steps." +
+                        "You turn to your left and you see a dog like creature rushing towards. " +
+                        "You attempt to run in the oppsite direction but you trip on the floor. " +
+                        "The creature leaps onto your back, and it sinks its teeth into your spine.");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("You died");
                 }
             }
             else if (input == "Walk Out")
             {
                 Console.WriteLine("You turn to the door and begin walking to the cell door." +
                     "Once you are out of the cell you look around there are a path leading right and one leading left.");
+                Console.WriteLine("As you step out into the hall way, you begin to hear rapidly approaching foot steps." +
+                        "You turn to your left and you see a dog like creature rushing towards. " +
+                        "You attempt to run in the oppsite direction but you trip on the floor. " +
+                        "The creature leaps onto your back, and it sinks its teeth into your spine.");
+                Console.ForegroundColor = ConsoleColor.DarkRed;
+                Console.WriteLine("You died");
             }
 
         }
@@ -133,6 +152,14 @@ namespace Text_Adventure
 
         static void Main(string[] args)
         {
+            PlayerData you = new()
+            {
+                health = 10,
+                fistDamage = 2,
+                isAlive = true,
+                name = "Prisoner",
+            };
+            Console.WriteLine(you.name);
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
             Console.WriteLine("Your eyes slowly open. You look around, you see that the it is a damp cell. The cell must be far from the surface." +
