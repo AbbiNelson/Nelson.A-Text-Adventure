@@ -40,6 +40,15 @@ namespace Text_Adventure
                     "But you tripped during your attempted escape, and the creature now has begun to dig into your flesh.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You died");
+                if (input == "Restart")
+                {
+                    Main([]);
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                }
+                //for (int i = 0; i < 2; ++i)
+                //{
+                //    Console.WriteLine("You can restart");
+                //}
             }
             else if (input == "Crawl")
             {
@@ -50,6 +59,20 @@ namespace Text_Adventure
                     "It plunges its teeth into you, and it rips you apart.");
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You died");
+                if (input == "Restart")
+                {
+                    Main([]);
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                }
+                for (int i = 0;i < 2; ++i)
+                {
+                    Console.WriteLine("You can restart");
+                }
+            }
+            else if (input == "Restart")
+            {
+                Main([]);
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
         }
 
@@ -119,6 +142,10 @@ namespace Text_Adventure
                                 "And as the creature leaps to you, you bring down the sword on it.");
                         }
                     }
+                    else if (input == "Restart")
+                    {
+                        Main([]);
+                    }
                 }
                 else if (input == "Leave Cell")
                 {
@@ -132,6 +159,10 @@ namespace Text_Adventure
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     Console.WriteLine("You died");
                 }
+                else if (input == "Restart")
+                {
+                    Main([]);
+                }
             }
             else if (input == "Walk Out")
             {
@@ -144,6 +175,10 @@ namespace Text_Adventure
                 Console.ForegroundColor = ConsoleColor.DarkRed;
                 Console.WriteLine("You died");
             }
+            else if (input == "Restart")
+            {
+                Main([]);
+            }
 
         }
 
@@ -152,6 +187,7 @@ namespace Text_Adventure
 
         static void Main(string[] args)
         {
+            //double my8ByteNumber = 13.666;
             PlayerData you = new()
             {
                 health = 10,
@@ -159,17 +195,23 @@ namespace Text_Adventure
                 isAlive = true,
                 name = "Prisoner",
             };
+            //int my4ByteIntergetAgain = Convert.ToInt32(my8ByteNumber);
+            
             Console.WriteLine(you.name);
+           
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
+            Console.WriteLine("What is your age?");
             Console.WriteLine("Your eyes slowly open. You look around, you see that the it is a damp cell. The cell must be far from the surface." +
                 "You see the cell door is open, you attempet to move but you can't. You look down and you see that your foot is chained.");
 
             Console.WriteLine("How do you want to escape the cell?");
             Console.WriteLine("> Break Foot");
             Console.WriteLine("> Call Out");
-
+            
             string input = Console.ReadLine();
+            //input = Console.ReadLine();
+            //int inputasnum = Convert.ToInt32(input);
+            //Console.WriteLine(1 + inputasnum);
             if (input == "Break Foot")
             {
                 BreakFoot();
@@ -177,6 +219,11 @@ namespace Text_Adventure
             else if (input == "Call Out")
             {
                 CallOut();
+            }
+            else if (input == "Restart")
+            {
+                Main([]);
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
         }
     }
