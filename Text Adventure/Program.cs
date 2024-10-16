@@ -126,6 +126,28 @@ namespace Text_Adventure
                             Console.WriteLine("You raise your arm up to protect your neck from the creature. " +
                                 "The creature plunges its teeth into the rusted armor." +
                                 "Even though the armor is rusted it protects you a bit from the teeth.");
+                            Console.WriteLine("The creature lets go of your, its mouth is bleeding from biting the armor. " +
+                                "And it seems the weakened from the attempt, it has lost interest in you.");
+
+                            Console.WriteLine("You can go right and leave or finish off the creature.");
+                            Console.WriteLine("> Go Right");
+                            Console.WriteLine("> Kill Creature");
+                            input = Console.ReadLine();
+                            if(input == "Go Right")
+                            {
+                                Console.WriteLine("You turn away from the creature and begin to walking down the hall." +
+                                    "As you reach the end you see stair that lead up, you begin to ascend." +
+                                    "You see a door a the top of the stairs, as you up the door you see a massive room filled cells.");
+                            }
+                            else if (input == "Kill Creature")
+                            {
+                                Console.WriteLine("You grab the creature by the neck and begin to punch it." +
+                                    "After a bit the creature stops moving.");
+                                Console.WriteLine("You turn away from the creature's corpse and begin to walking down the hall." +
+                                    "As you reach the end you see stair that lead up, you begin to ascend." +
+                                    "You see a door a the top of the stairs, as you up the door you see a massive room filled cells.");
+
+                            }
                         }
                     }
                     else if (input == "Rusted Sword")
@@ -140,6 +162,25 @@ namespace Text_Adventure
                         if (playerequip == equipmenttype.RustedSword) {
                             Console.WriteLine("You take the rusted sword and you raise it above your head. " +
                                 "And as the creature leaps to you, you bring down the sword on it.");
+                            Console.WriteLine("The sword comes down killing the creature.");
+                            Console.WriteLine("You can go right and leave or you can check out the dead creature.");
+                            Console.WriteLine("> Go Right");
+                            Console.WriteLine("> Check Out Corpse");
+                            input = Console.ReadLine();
+                            if (input == "Go Right")
+                            {
+                                Console.WriteLine("You turn away from the creature's corpse and begin to walking down the hall." +
+                                    "As you reach the end you see stair that lead up, you begin to ascend." +
+                                    "You see a door a the top of the stairs, as you up the door you see a massive room filled cells.");
+                            }
+                            else if (input == "Check Out Corpse")
+                            {
+                                Console.WriteLine("You walk over to the corpse, as you bend over you realize it is a Hessian." +
+                                    "As you look it over it was it extermly poor health. You check its stomach unfortunately there is nothing of value in it.");
+                                Console.WriteLine("You turn away from the creature's corpse and begin to walking down the hall." +
+                                    "As you reach the end you see stair that lead up, you begin to ascend." +
+                                    "You see a door a the top of the stairs, as you up the door you see a massive room filled cells.");
+                            }
                         }
                     }
                     else if (input == "Restart")
