@@ -64,10 +64,10 @@ namespace Text_Adventure
                     Main([]);
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
                 }
-                for (int i = 0;i < 2; ++i)
-                {
-                    Console.WriteLine("You can restart");
-                }
+                //for (int i = 0;i < 2; ++i)
+                //{
+                //    Console.WriteLine("You can restart");
+                //}
             }
             else if (input == "Restart")
             {
